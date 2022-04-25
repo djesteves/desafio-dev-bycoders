@@ -28,9 +28,6 @@ public class HandleCNABFileController {
 
         handleCNABFileService.readFile(multipartFile);
 
-
-
-
         return new ResponseEntity<> (HttpStatus.NO_CONTENT);
     }
 }
