@@ -17,7 +17,7 @@
 
   <ng-container matColumnDef="valor">
     <th mat-header-cell *matHeaderCellDef> Valor </th>
-    <td mat-cell *matCellDef="let store"> {{store.valor}} </td>
+    <td mat-cell *matCellDef="let store"> R{{store.valor | currency}} </td>
   </ng-container>
 
   <ng-container matColumnDef="cpf">

@@ -18,7 +18,6 @@ export class ListaLojaComponent implements OnInit {
 
   ngOnInit(): void {
     this.findAllStore();
-    console.log('TESTES: ', this.stores);
   }
 
   private findAllStore(): void {
