@@ -1,12 +1,12 @@
 # Desafio programação - para vaga desenvolvedor
-Projeto feito por Danilo João Esteves
-Desenvolvedor fullstack
-IDE utilizada: Visual Studio Code
+- Projeto feito por Danilo João Esteves
+- Desenvolvedor fullstack
+- IDE utilizada: Visual Studio Code
 # Linguagens Utilizadas
-Java
+- Java
 # Frameworks
-SpringBoot
-AngularJS
+- SpringBoot
+- AngularJS
 # Instalação
 Necessita Java JDK 11 ou maior, DOCKER e Angular CLI para execução.
 #### Execute docker compose para iniciar o banco de dados:
@@ -26,13 +26,14 @@ ng serve --open
 ```
 O frontend será executado na http://localhost:4200
 # Consumir as apis diretamente
-Para essa etapa eu utilizei o Postman, mas pode ser utilizado qualquer httpClient que quiser
+Para essa etapa utilizei o Postman, mas pode ser utilizado qualquer httpClient que quiser
 # API para envio do arquivo CNAB
 cURL: 
 ```sh
 curl --location --request POST 'localhost:8080/v1/upload/cnab' \
 --form 'file=@"{caminho_arquivo}/CNAB.txt"'
 ```
+No Postman é necessário escolher o body no formato form-data mudar de TEXT para FILE e assim será possível realizar a requisição.
 # API para consulta das lojas do arquivo CNAB
 cURL:
 ```sh
