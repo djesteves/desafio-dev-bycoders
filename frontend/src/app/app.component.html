@@ -8,17 +8,15 @@
     <p style="color: white;">Menu</p>
   </div>
 </mat-toolbar>
+
 <mat-sidenav-container>
-
   <mat-sidenav [(opened)]="sidenav_opened" #sidenav mode="side">
-
     <mat-nav-list>
-
       <mat-list-item routerLink="/upload">Upload File</mat-list-item>
-      <mat-list-item routerLink="/projects">Lista de Lojas</mat-list-item>
-
+      <mat-list-item routerLink="/lista-loja">Store List</mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
+
   <mat-sidenav-content>
     <div class="content-wrapper">
       <router-outlet></router-outlet>

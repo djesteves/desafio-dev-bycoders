@@ -2,11 +2,14 @@ package com.example.desafiocnab.controller;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
+import com.example.desafiocnab.model.CNAB;
 import com.example.desafiocnab.service.HandleCNABFileService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,5 +32,11 @@ public class HandleCNABFileController {
         handleCNABFileService.readFile(multipartFile);
 
         return new ResponseEntity<> (HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<CNAB>> findAll () {
+
+        return ResponseEntity.ok(handleCNABFileService.findAll());
     }
 }

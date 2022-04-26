@@ -14,11 +14,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table'  
 @NgModule({
   declarations: [
     AppComponent,
     UploadComponent,
-    ListaLojaComponent
+    ListaLojaComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +33,8 @@ import { MatListModule } from '@angular/material/list';
     MatDividerModule,
     MatButtonModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

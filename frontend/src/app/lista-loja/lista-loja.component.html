@@ -1,1 +1,51 @@
-<p>lista-loja works!</p>
+<table mat-table [dataSource]="stores" class="mat-elevation-z8">
+  
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let store"> {{store.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="tipo">
+    <th mat-header-cell *matHeaderCellDef> Tipo </th>
+    <td mat-cell *matCellDef="let store"> {{store.tipo}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="data">
+    <th mat-header-cell *matHeaderCellDef> Data </th>
+    <td mat-cell *matCellDef="let store"> {{store.data}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="valor">
+    <th mat-header-cell *matHeaderCellDef> Valor </th>
+    <td mat-cell *matCellDef="let store"> {{store.valor}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="cpf">
+    <th mat-header-cell *matHeaderCellDef> CPF </th>
+    <td mat-cell *matCellDef="let store"> {{store.cpf}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="cartao">
+    <th mat-header-cell *matHeaderCellDef> Cartão </th>
+    <td mat-cell *matCellDef="let store"> {{store.cartao}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="hora">
+    <th mat-header-cell *matHeaderCellDef> Hora </th>
+    <td mat-cell *matCellDef="let store"> {{store.hora}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="donoLoja">
+    <th mat-header-cell *matHeaderCellDef> Dono da Loja </th>
+    <td mat-cell *matCellDef="let store"> {{store.donoLoja}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="nomeLoja">
+    <th mat-header-cell *matHeaderCellDef> Nome da Loja </th>
+    <td mat-cell *matCellDef="let store"> {{store.nomeLoja}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+

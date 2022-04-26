@@ -51,4 +51,8 @@ public class HandleCNABFileService {
         int newValue = Integer.parseInt(value);
         return new BigDecimal(newValue/100);
     }
+
+    public List<CNAB> findAll(){
+        return handleCNABFileRepository.findAll();
+    }
 }
