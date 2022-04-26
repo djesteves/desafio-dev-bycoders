@@ -8,7 +8,7 @@
 - SpringBoot
 - AngularJS
 # Instalação
-Necessita Java JDK 11 ou maior, DOCKER e Angular CLI para execução.
+Necessita Java JDK 11 +, DOCKER e Angular CLI para execução.
 #### Execute docker compose para iniciar o banco de dados:
 ```sh
 docker-compose up
@@ -24,7 +24,7 @@ Após ter o Angular CLI instalado execute o seguinte comando:
 ```sh
 ng serve --open
 ```
-O frontend será executado na http://localhost:4200
+O frontend será executado no seguinte endereço: http://localhost:4200
 # Consumir as apis diretamente
 Para essa etapa utilizei o Postman, mas pode ser utilizado qualquer httpClient que quiser
 # API para envio do arquivo CNAB

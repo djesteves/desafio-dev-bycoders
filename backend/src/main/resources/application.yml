@@ -1,0 +1,29 @@
+message: Development mode is on
+
+security:
+  oauth2:
+    resource:
+      filter-order: 3
+
+oauth:
+  client:
+    name: client
+    secret: secret
+
+jwt:
+  secret: MY-JWT-SECRET
+
+
+spring:
+  datasource:
+    username: postgres
+    url: jdbc:postgresql://localhost:5432/desafio
+    platform: postgres
+    password: postgres
+  jpa:
+    database: POSTGRESQL
+    show-sql: 'true'
+    hibernate:
+      ddl-auto: create-drop
+  database:
+    driverClassName: org.postgresql.Driver

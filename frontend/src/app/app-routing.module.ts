@@ -5,6 +5,7 @@ import { UploadComponent } from './upload/upload.component';
 import { ListaLojaComponent } from './lista-loja/lista-loja.component';
 
 const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'login'},
   { path: 'upload', component: UploadComponent },
   { path: 'lista-loja', component: ListaLojaComponent },
 ];

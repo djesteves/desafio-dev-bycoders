@@ -1,21 +1,23 @@
-package com.example.desafiocnab.service;
+package com.example.desafiocnab.api.cnab.service;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.desafiocnab.model.CNAB;
-import com.example.desafiocnab.repository.HandleCNABFileRepository;
+import com.example.desafiocnab.exception.UnprocessableEntityException;
+import com.example.desafiocnab.api.cnab.entity.CNAB;
+import com.example.desafiocnab.api.cnab.repository.HandleCNABFileRepository;
 import com.example.desafiocnab.util.DateUtil;
 
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
+@Log4j2
 public class HandleCNABFileService {
 
     private HandleCNABFileRepository handleCNABFileRepository;
@@ -24,7 +26,14 @@ public class HandleCNABFileService {
         this.handleCNABFileRepository = handleCNABFileRepository;
     }
 
-    public void readFile(MultipartFile multipartFile) throws UnsupportedEncodingException, IOException {
+    public void readFile(MultipartFile multipartFile) throws IOException {
+
+        log.info("Iniciando validação e parser do documento!");
+
+        if (multipartFile.isEmpty()) {
+            log.error("O Arquivo está vazio!");
+            throw new UnprocessableEntityException("O Arquivo está vazio!");
+        }
 
         List<CNAB> fileList = new ArrayList<>();
         String line;
@@ -39,10 +48,13 @@ public class HandleCNABFileService {
                     .hora(DateUtil.CNABStringToLocalTime(line.substring(42, 48)))
                     .donoLoja(line.substring(48, 62))
                     .nomeLoja(line.substring(62, 80))
-                    .build());
+                    .build()
+            );
         }
 
         handleCNABFileRepository.saveAll(fileList);
+
+        log.info("Validação e parser do documento realizada com sucesso!");
     }
 
     private BigDecimal NormalizeValue(String value) {
