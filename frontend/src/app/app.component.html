@@ -1,14 +1,30 @@
-<h1>Upload your file here!</h1>
-
-<form [formGroup]="myForm" (ngSubmit)="submit()">
-
-  <div class="form-group">
-    <label for="file">File</label>
-    <input formControlName="file" id="file" type="file" class="form-control" (change)="onFileChange($event)">
-    <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
-      <div *ngIf="f.file.errors?.required">File is required.</div>
-    </div>
+<mat-toolbar color="primary" class="example-toolbar">
+  <div> <button (click)="sidenav_opened = !sidenav_opened" style="border-radius: px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
+      <mat-icon>menu</mat-icon>
+    </button>
   </div>
+  <div>
+    <p style="color: white;">Menu</p>
+  </div>
+</mat-toolbar>
+<mat-sidenav-container>
 
-  <button class="btn btn-primary" type="submit">Submit</button>
-</form>
+  <mat-sidenav [(opened)]="sidenav_opened" #sidenav mode="side">
+
+    <mat-nav-list>
+
+      <mat-list-item routerLink="/upload">Upload File</mat-list-item>
+      <mat-list-item routerLink="/projects">Lista de Lojas</mat-list-item>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content-wrapper">
+      <router-outlet></router-outlet>
+    </div>
+    <div style="margin: 500px;">
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

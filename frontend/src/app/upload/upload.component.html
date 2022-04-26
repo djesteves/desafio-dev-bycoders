@@ -1,0 +1,24 @@
+<div><a routerLink="">Home</a></div>
+<div class="content-fluid">
+  <section class="content-header">
+    <h1>Upload your file here!</h1>
+    <ol class="breadcrumb">
+    </ol>
+  </section>
+
+  <section class="content">
+    <form [formGroup]="myForm" (ngSubmit)="submit()">
+
+      <div class="form-group">
+        <label for="file">Choose your File</label>
+        <br>
+        <input formControlName="file" id="file" type="file" class="form-control" (change)="onFileChange($event)">
+        <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
+          <div *ngIf="f.file.errors?.required">File is required.</div>
+        </div>
+      </div>
+      <br>
+      <button mat-flat-button color="primary" class="btn btn-primary" type="submit">Submit</button>
+    </form>
+  </section>  
+</div>
