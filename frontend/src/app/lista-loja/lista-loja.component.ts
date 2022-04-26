@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Cnab } from 'app/models/cnab.model';
-import { CnabService } from 'app/services/cnab.service';
+import { Cnab } from 'models/cnab.model';
+import { CnabService } from 'services/cnab.service';
 
 @Component({
   selector: 'app-lista-loja',
