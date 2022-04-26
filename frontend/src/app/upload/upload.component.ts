@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-upload',
@@ -8,6 +9,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent implements OnInit {
+
+  private url = '/v1/upload/cnab';
 
   myForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -38,7 +41,7 @@ export class UploadComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', this.myForm.get('fileSource')?.value);
 
-    this.http.post('http://localhost:8080/v1/upload/cnab', formData)
+    this.http.post(environment.apiURL + this.url, formData)
       .subscribe(res => {
         console.log(res);
         alert('Uploaded Successfully.');
