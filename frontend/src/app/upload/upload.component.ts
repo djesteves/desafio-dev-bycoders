@@ -10,7 +10,7 @@ import { environment } from 'environments/environment';
 })
 export class UploadComponent implements OnInit {
 
-  private url = '/v1/upload/cnab';
+  private url = '/v1/cnab/upload';
 
   myForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),

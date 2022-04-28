@@ -1,4 +1,4 @@
-package com.example.desafiocnab.model;
+package com.example.desafiocnab.api.cnab.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -20,6 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CNAB {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -31,4 +32,6 @@ public class CNAB {
     private LocalTime hora;
     private String donoLoja;
     private String nomeLoja;
+
+
 }

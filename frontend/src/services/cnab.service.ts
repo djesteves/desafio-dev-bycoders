@@ -11,7 +11,7 @@ import { of } from "rxjs/internal/observable/of";
 @Injectable({ providedIn: 'root' })
 export class CnabService {
 
-    private url = '/v1/upload/cnab';
+    private url = '/v1/cnab';
 
     constructor(
         private http: HttpClient,

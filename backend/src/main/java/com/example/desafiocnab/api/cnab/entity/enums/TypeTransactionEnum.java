@@ -1,4 +1,4 @@
-package com.example.desafiocnab.model.enums;
+package com.example.desafiocnab.api.cnab.entity.enums;
 
 public enum TypeTransactionEnum {
 
@@ -42,3 +42,5 @@ public enum TypeTransactionEnum {
         throw new IllegalArgumentException("Tipo não Encontrado");
     }
 }
+
+

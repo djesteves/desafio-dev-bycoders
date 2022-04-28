@@ -1,28 +1,21 @@
-<mat-toolbar color="primary" class="example-toolbar">
-  <div> <button (click)="sidenav_opened = !sidenav_opened" style="border-radius: px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
-      <mat-icon>menu</mat-icon>
-    </button>
+<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+  <div class="navbar-nav">
+    <a class="nav-item nav-link" routerLink="/">Home</a>
+    <a class="nav-item nav-link" routerLink="/upload">Upload</a>
+    <a class="nav-item nav-link" routerLink="/lista-loja">Store List</a>
+    <a class="nav-item nav-link" (click)="logout()">Logout</a>
   </div>
-  <div>
-    <p style="color: white;">Menu</p>
+</nav>
+
+<!-- main app container -->
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 offset-sm-3">
+        <alert></alert>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
   </div>
-</mat-toolbar>
-
-<mat-sidenav-container>
-  <mat-sidenav [(opened)]="sidenav_opened" #sidenav mode="side">
-    <mat-nav-list>
-      <mat-list-item routerLink="/upload">Upload File</mat-list-item>
-      <mat-list-item routerLink="/lista-loja">Store List</mat-list-item>
-    </mat-nav-list>
-  </mat-sidenav>
-
-  <mat-sidenav-content>
-    <div class="content-wrapper">
-      <router-outlet></router-outlet>
-    </div>
-    <div style="margin: 500px;">
-    </div>
-  </mat-sidenav-content>
-
-</mat-sidenav-container>
+</div>
