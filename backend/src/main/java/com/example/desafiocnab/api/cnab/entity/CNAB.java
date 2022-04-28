@@ -32,6 +32,4 @@ public class CNAB {
     private LocalTime hora;
     private String donoLoja;
     private String nomeLoja;
-
-
 }

@@ -27,16 +27,21 @@ export class AuthenticationService {
   }
 
   login(username, password) {
-    let user = {
+    let userRequest = {
       "grant_type": "password",
       "username": username,
       "password": password
     }
-    let body = `grant_type=${user.grant_type}&username=${user.username}&password=${user.password}`;
+    let body = `grant_type=${userRequest.grant_type}&username=${userRequest.username}&password=${userRequest.password}`;
     return this.http.post<any>(environment.apiURL + this.url, body, { headers: this.headers })
-      .pipe(map(access_token => {
-        localStorage.setItem('currentUser', JSON.stringify(access_token));
-        console.log(access_token);
+      .pipe(map(obj => {
+        let user = new User;
+        user.username = userRequest.username;
+        user.password = userRequest.password;
+        user.token = obj.access_token;
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+        return user;
       }));
   }
 

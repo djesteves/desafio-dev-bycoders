@@ -20,9 +20,14 @@ spring:
     url: jdbc:postgresql://localhost:5432/desafio
     platform: postgres
     password: postgres
+    initialization-mode: always
+    sql:
+      init:
+        mode: always
   jpa:
     database: POSTGRESQL
     show-sql: 'true'
+    defer-datasource-initialization: 'true'
     hibernate:
       ddl-auto: create-drop
   database:

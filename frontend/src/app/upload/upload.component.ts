@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'environments/environment';
 
@@ -11,6 +11,8 @@ import { environment } from 'environments/environment';
 export class UploadComponent implements OnInit {
 
   private url = '/v1/cnab/upload';
+  private headers = new HttpHeaders()
+    .set('Authorization', 'Bearer ' + localStorage.getItem('currentUser'));
 
   myForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -41,7 +43,7 @@ export class UploadComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', this.myForm.get('fileSource')?.value);
 
-    this.http.post(environment.apiURL + this.url, formData)
+    this.http.post(environment.apiURL + this.url, formData, { headers: this.headers })
       .subscribe(res => {
         console.log(res);
         alert('Uploaded Successfully.');

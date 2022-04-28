@@ -12,7 +12,7 @@ import { AuthenticationService } from 'services/authentication.service';
 export class AppComponent {
 
   currentUser: User;
-
+  
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService

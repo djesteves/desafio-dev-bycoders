@@ -70,6 +70,8 @@ public class HandleCNABFileService {
 
     public List<CNABResponse> calcTotalLoja() {
         handleCNABFileRepository.saveTotalLoja();
-        return handleCNABFileRepository.totalLoja();
+        List<CNABResponse> cnabResponse = handleCNABFileRepository.totalLoja();
+        handleCNABFileRepository.deleteAllTempCalc();
+        return cnabResponse;
     }
 }

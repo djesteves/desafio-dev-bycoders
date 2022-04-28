@@ -37,6 +37,11 @@ public interface HandleCNABFileRepository extends JpaRepository<CNAB, Long> {
             + " FROM   cnab cnab", nativeQuery = true)
     void saveTotalLoja();
 
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM temp_calc;", nativeQuery = true)
+    void deleteAllTempCalc();
+
     @Query(value = " SELECT nome_loja,"
             + "       cpf,"
             + "       dono_loja,"

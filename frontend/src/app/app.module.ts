@@ -20,6 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component'
 import { JwtInterceptor } from 'helpers/jwt.interceptor';
 import { ErrorInterceptor } from 'helpers/error.interceptor';
+import { TotalListaLojaComponent } from './total-lista-loja/total-lista-loja.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { ErrorInterceptor } from 'helpers/error.interceptor';
     AlertComponent,
     HomeComponent,
     LoginComponent,
+    TotalListaLojaComponent,
   ],
   imports: [
     BrowserModule,
