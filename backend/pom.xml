@@ -67,7 +67,7 @@
 		</dependency>
 
 
-<!--		Authorization oauth2-->
+		<!--Authorization oauth2-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
@@ -91,7 +91,12 @@
 			<scope>test</scope>
 		</dependency>
 
-
+		<!--Swagger Hub-->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.6.8</version>
+		 </dependency>
 
 	</dependencies>
 

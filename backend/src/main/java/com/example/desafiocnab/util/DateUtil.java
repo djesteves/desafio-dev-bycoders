@@ -3,10 +3,6 @@ package com.example.desafiocnab.util;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-
-import org.springframework.stereotype.Component;
-
-@Component
 public class DateUtil {
 
     static DateTimeFormatter localDatePattern = DateTimeFormatter.ofPattern("yyyyMMdd");
